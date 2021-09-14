@@ -1,8 +1,10 @@
-<h5>Post Page</h5>
-
+<!-- Post page html component -->
 <mat-card>
   <mat-form-field>
-    <textarea matInput name="txtArea" [value]="newPost" id="" cols="15" rows="10"></textarea>
+    <input matInput [(ngModel)]="enteredTitle" type="text">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput name="txtArea" [(ngModel)]="enteredContent" id="" cols="15" rows="10"></textarea>
   </mat-form-field>
   <hr>
   <button 
@@ -12,6 +14,4 @@
 </mat-card>
 
 
-
-<p>{{ newPost}}</p>
  
