@@ -1,16 +1,31 @@
 <!-- Post page html component -->
 <mat-card>
-  <mat-form-field>
-    <input matInput [(ngModel)]="enteredTitle" type="text">
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput name="txtArea" [(ngModel)]="enteredContent" id="" cols="15" rows="10"></textarea>
-  </mat-form-field>
-  <hr>
-  <button 
-    mat-raised-button
-    color="primary" 
-    (click)="onAddPost()">Save Post</button>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input matInput        
+      name="title"
+      type="text"
+      ngModel
+      required
+      minlength=3
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <textarea 
+      matInput 
+      name="content" 
+      ngModel
+      required
+      minlength=3
+      cols="15" 
+      rows="10"></textarea>
+    </mat-form-field>
+    <hr>
+    <button 
+      mat-raised-button
+      color="primary">Save Post</button>
+  </form>
+
 </mat-card>
 
 
