@@ -8,7 +8,9 @@
       ngModel
       required
       minlength=3
+      #title ="ngModel"
       >
+      <mat-error *ngIf="title.invalid">Please enter a post title</mat-error>
     </mat-form-field>
     <mat-form-field>
       <textarea 
@@ -18,7 +20,10 @@
       required
       minlength=3
       cols="15" 
-      rows="10"></textarea>
+      rows="10"
+      #content="ngModel"
+      ></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a post title</mat-error>
     </mat-form-field>
     <hr>
     <button 
