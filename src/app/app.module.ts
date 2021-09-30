@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material elements
 import { FormsModule } from '@angular/forms';
@@ -32,7 +33,8 @@ import { PostListComponent } from '../app/post/post-list/post-list.component';
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    MatExpansionModule 
+    MatExpansionModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
