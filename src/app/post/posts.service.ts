@@ -11,7 +11,9 @@ export class PostServices {
     constructor(private http: HttpClient) {}
 
     getPosts() {
-        this.http.get<{message: string, posts:Post[]}>('http://localhost:3000/api/host')
+        this.http
+        .get<{message: string; posts:Post[]}>(
+          'http://localhost:3000/api/post')
         .subscribe( (postData) => {
            this.posts = postData.posts;
            this.postUpdated.next([...this.posts])  
@@ -23,9 +25,13 @@ export class PostServices {
     }
     
     addPost( title: string, content: string) {
-      const post: Post = { id: '',title: title, content: content };
-      this.posts.push(post);
-      this.postUpdated.next([...this.posts]);
+      const post: Post = { id: "", title: title, content: content };
+      this.http
+      .post<{message: string}>('http://localhost:3000/api/posts', post)
+      .subscribe((response) => {
+        console.log(response.message);
+        this.posts.push(post);
+        this.postUpdated.next([...this.posts]);
+      });     
     }
-
 }
